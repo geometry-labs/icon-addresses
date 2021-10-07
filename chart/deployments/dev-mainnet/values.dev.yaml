@@ -1,0 +1,35 @@
+ingress:
+  enabled: false
+api:
+  image:
+    tag: '0'
+  annotations: |
+    "consul.hashicorp.com/connect-inject": "true"
+    "consul.hashicorp.com/transparent-proxy": "false"
+    "geometrylabs.io/logging": "true"
+    "prometheus.io/scrape": "true"
+    "prometheus.io/port": "9400"
+  kafka:
+    topics:
+      blocks: blocks-raw
+      transactions: transactions-raw
+      logs: logs-raw
+worker:
+  annotations: |
+    "geometrylabs.io/logging": "true"
+    "prometheus.io/scrape": "true"
+    "prometheus.io/port": "9400"
+  image:
+    tag: '0'
+  kafka:
+    topics:
+      blocks: blocks-raw
+      transactions: transactions-raw
+      logs: logs-raw
+db:
+  sslMode: require
+redis:
+  host: 10.101.62.32
+kafka:
+  consumerGroupHead: addresses-consumer-group-head
+  consumerGroupTail: addresses-consumer-group-tail
