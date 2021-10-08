@@ -126,6 +126,7 @@ func transformLogRawToAddress(logRaw *models.LogRaw, useFromAddress bool) *model
 		IsContract:       isContract,
 		TransactionCount: 0, // Enriched in loader
 		LogCount:         0, // Enriched in loader
+		Balance:          0, // Enriched in loader
 	}
 }
 
@@ -158,6 +159,7 @@ func transformLogRawToTransaction(logRaw *models.LogRaw) *models.Transaction {
 		BlockNumber:      logRaw.BlockNumber,
 		TransactionIndex: logRaw.TransactionIndex,
 		BlockTimestamp:   logRaw.BlockTimestamp,
+		TransactionFee:   "0x0", // No fees for internal transactions
 		LogIndex:         int32(logRaw.LogIndex),
 	}
 }
