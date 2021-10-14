@@ -85,6 +85,8 @@ func (m *LogCountByAddressModel) SelectOne(transactionHash string, logIndex uint
 }
 
 func (m *LogCountByAddressModel) SelectLargestCountByPublicKey(publicKey string) (uint64, error) {
+	//TODO
+	return 0, nil
 	db := m.db
 
 	// Set table

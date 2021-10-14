@@ -85,6 +85,8 @@ func (m *TransactionCountByAddressModel) SelectOne(transactionHash string, publi
 }
 
 func (m *TransactionCountByAddressModel) SelectLargestCountByPublicKey(publicKey string) (uint64, error) {
+	// TODO
+	return 0, nil
 	db := m.db
 
 	// Set table
